@@ -1,29 +1,24 @@
 package Servlet;
 
-import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-
-import java.io.IOException;
-import java.io.PrintWriter;
+import ru.ivt.mvc.Task;
+import ru.ivt.mvc.TaskDataBase;
+import ru.ivt.mvc.TaskView;
 
 @WebServlet("/add")
 public class AddServlet extends HttpServlet {
-    public AddServlet() {
-    }
+    private TaskDataBase dataBase;
+    private TaskView view;
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.setContentType("text/html");
-        PrintWriter writer = response.getWriter();
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) {
 
-        try {
-            writer.println("<h2>Hello from HelloServlet</h2>");
-        } finally {
-            writer.close();
-        }
-
+        Task task = new Task(dataBase.getNextId(), request.getParameter("username"));
+        int id = dataBase.addTask(task);
+        view.showMessage("Задача добавлена. ID:"+String.valueOf(id));
     }
 }
 
