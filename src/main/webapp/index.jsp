@@ -6,6 +6,8 @@
 </head>
 <body>
 <form action="add" method="POST">
+    ID: <input name="userid" />
+    <br><br>
     Name: <input name="username" />
     <br><br>
     <input type="submit" value="Submit" />

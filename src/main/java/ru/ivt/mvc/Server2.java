@@ -1,5 +1,4 @@
-import ru.ivt.mvc.TaskController;
-import ru.ivt.mvc.TaskDataBase;
+package ru.ivt.mvc;
 
 import java.util.Scanner;
 

@@ -43,7 +43,7 @@ public class HelloServlet extends HttpServlet {
             writer.println("<p>Age: " + age + "</p>");
             writer.println("<p>Gender: " + gender + "</p>");
             writer.println("<p>Country: " + country + "</p>");
-            writer.println("<h4>Courses</h4>");
+            writer.println("<h4>Course</h4>");
             for(String course: courses)
                 writer.println("<li>" + course + "</li>");
         } finally {
