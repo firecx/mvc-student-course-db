@@ -1,4 +1,4 @@
-package Date;
+package org.example.mvc.model;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -9,24 +9,26 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class DataBase {
-    private static volatile DataBase instance;
+import org.example.mvc.model.Database;
+
+public class Database {
+    private static volatile Database instance;
     private List<Student> students;
     private List<Course> courses;
     private final ObjectMapper mapper = new ObjectMapper();
     private static final String STUDENTS_FILE = "DataBase/students.json";
     private static final String COURSES_FILE = "DataBase/cours.json";
 
-    private DataBase() throws IOException {
+    private Database() throws IOException {
         // Загрузка данных из файлов
         loadData();
     }
 
-    public static DataBase getInstance() throws IOException {
+    public static Database getInstance() throws IOException {
         if (instance == null) {
-            synchronized (DataBase.class) {
+            synchronized (Database.class) {
                 if (instance == null) {
-                    instance = new DataBase();
+                    instance = new Database();
                 }
             }
         }
