@@ -71,6 +71,7 @@ public class Database {
     }
 
     private synchronized void saveData(String filename, List<?> data) throws IOException {
+
         mapper.writeValue(new File(filename), data);
     }
 
