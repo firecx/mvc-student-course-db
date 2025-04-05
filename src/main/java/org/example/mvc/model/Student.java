@@ -1,16 +1,16 @@
-package Date;
+package org.example.mvc.model;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 @JsonAutoDetect
-public class Course {
+public class Student {
     private String id;
     private String name;
 
     @JsonCreator
-    public Course(@JsonProperty("id") String id, @JsonProperty("name") String name) {
+    public Student(@JsonProperty("id") String id, @JsonProperty("name") String name) {
         this.id = id;
         this.name = name;
     }
