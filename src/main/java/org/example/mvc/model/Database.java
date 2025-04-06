@@ -9,8 +9,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import org.example.mvc.model.Database;
-
 public class Database {
     private static volatile Database instance;
     private List<Student> students;
