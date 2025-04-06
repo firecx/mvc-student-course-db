@@ -11,17 +11,17 @@ import java.io.IOException;
 import org.example.mvc.model.Database;
 
 
-@WebServlet("/addStudent")
-public class ServletAddStudent extends HttpServlet {
+@WebServlet("/addCourse")
+public class ServletAddCourse extends HttpServlet {
     private Database dataBase;
-    private String returnPath = "pages/pagesAddStudent.jsp";
+    private String returnPath = "pages/pagesAddCourse.jsp";
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        if(!request.getParameter("userid").isEmpty() && !request.getParameter("username").isEmpty()) {
+        if(!request.getParameter("courseid").isEmpty() && !request.getParameter("coursename").isEmpty()) {
             this.dataBase = Database.getInstance();
-            dataBase.addStudent(request.getParameter("userid"),request.getParameter("username"));
-            request.setAttribute("message", "Студент успешно добавлен!");
+            dataBase.addCourse(request.getParameter("courseid"),request.getParameter("coursename"));
+            request.setAttribute("message", "Курс успешно добавлен!");
             request.getRequestDispatcher(returnPath).forward(request, response);
         }
         else {

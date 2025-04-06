@@ -9,8 +9,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import org.example.mvc.model.Database;
-
 public class Database {
     private static volatile Database instance;
     private List<Student> students;
@@ -65,8 +63,8 @@ public class Database {
         saveData(STUDENTS_FILE, students);
     }
 
-    public synchronized void addCourse(Course course) throws IOException {
-        courses.add(course);
+    public synchronized void addCourse(String id, String name) throws IOException {
+        courses.add(new Course(id, name));
         saveData(COURSES_FILE, courses);
     }
 

@@ -9,16 +9,10 @@
 <title>User Form</title>
 </head>
 <body>
-<form action="addStudent" method="POST">
-    ID: <input name="userid" />
-    <br><br>
-    Name: <input name="username" />
-    <br><br>
-    <input type="submit" value="Submit" />
-    <br><br>
-</form>
-    <div class="message">
-            <p>${message}</p>
+    <div>
+        <a href="pages/pagesAddStudent.jsp">Студенты</a>
+        <a href="pages/pagesAddCourse.jsp">Курсы</a>
+        <a href="">Запись</a>
     </div>
 </body>
 </html>
