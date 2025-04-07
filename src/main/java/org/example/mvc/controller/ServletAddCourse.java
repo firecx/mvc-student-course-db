@@ -29,6 +29,11 @@ public class ServletAddCourse extends HttpServlet {
             request.getRequestDispatcher(returnPath).forward(request, response);
         }
     }
+
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        request.getRequestDispatcher(returnPath).forward(request, response);
+    }
 }
 
 

@@ -20,6 +20,7 @@ public class ServletAddStudent extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         if(!request.getParameter("userid").isEmpty() && !request.getParameter("username").isEmpty()) {
             this.dataBase = Database.getInstance();
+            String path = request.getContextPath();
             dataBase.addStudent(request.getParameter("userid"),request.getParameter("username"));
             request.setAttribute("message", "Студент успешно добавлен!");
             request.getRequestDispatcher(returnPath).forward(request, response);
@@ -29,6 +30,10 @@ public class ServletAddStudent extends HttpServlet {
             request.getRequestDispatcher(returnPath).forward(request, response);
         }
     }
-}
 
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        request.getRequestDispatcher(returnPath).forward(request, response);
+    }
+}
 

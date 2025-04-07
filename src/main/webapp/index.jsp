@@ -10,8 +10,8 @@
 </head>
 <body>
     <div>
-        <a href="pages/pagesAddStudent.jsp">Студенты</a>
-        <a href="pages/pagesAddCourse.jsp">Курсы</a>
+        <a href="/addStudent">Студенты</a>
+        <a href="/addCourse">Курсы</a>
         <a href="">Запись</a>
     </div>
 </body>

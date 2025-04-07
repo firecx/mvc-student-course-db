@@ -14,8 +14,8 @@ public class Database {
     private List<Student> students;
     private List<Course> courses;
     private final ObjectMapper mapper = new ObjectMapper();
-    private static final String STUDENTS_FILE = "DataBase/students.json";
-    private static final String COURSES_FILE = "DataBase/cours.json";
+    private static final String STUDENTS_FILE = "../webapps/ROOT/DataBase/students.json";
+    private static final String COURSES_FILE = "../webapps/ROOT/DataBase/cours.json";
 
     private Database() throws IOException {
         // Загрузка данных из файлов
