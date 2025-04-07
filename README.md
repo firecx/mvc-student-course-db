@@ -38,7 +38,13 @@ tomcat server implementation uses empty context string `""`, which triggers `wel
 
 # todo
 
-- remove `ru.ivt.mvc` example
-- fix `request.getRequestDispatcher("add.jsp")` returning `null`, after fixing this issue future development should become pretty easy
-- after fixing the issue above add `welcome.jsp` page, on which database stats should be displayed, like number of students and courses, modification count, requests count etc.
-- current implementation of tomcat server uses `org.apache.catalina.startup.Tomcat`, which is intended to be used in tests, to properly implement the server we should work with `org.apache.catalina.startup.Bootstrap`
+1. remove `ru.ivt.mvc` example
+2. fix `request.getRequestDispatcher("/add.jsp")` returning `null`
+3. add `welcome.jsp` page, on which database stats should be displayed (number of students and courses, modification count, requests count etc.)
+4. **continuously update todo and roadmap**
+
+    Check the links for imagination 
+    
+    + https://github.com/s4kibs4mi/java-developer-roadmap
+    + https://github.com/akullpp/awesome-java
+    + https://github.com/sindresorhus/awesome
