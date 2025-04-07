@@ -48,3 +48,18 @@ tomcat server implementation uses empty context string `""`, which triggers `wel
     + https://github.com/s4kibs4mi/java-developer-roadmap
     + https://github.com/akullpp/awesome-java
     + https://github.com/sindresorhus/awesome
+# roadmap
+
+1. add tests
+
+    Learn JUnit
+
+2. containerize the application in docker image for easy deployment
+
+    Look into https://docs.docker.com/get-started/workshop/ for more info. Later deployment with kubernetes
+
+3. create maven goal for quick deployment
+
+4. implement `org.apache.catalina.startup.Bootstrap`
+
+    Current implementation of tomcat server uses `org.apache.catalina.startup.Tomcat`, which is intended to be used in tests, to properly implement the server we should work with `org.apache.catalina.startup.Bootstrap`
