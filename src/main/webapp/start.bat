@@ -1,0 +1,1 @@
+java -classpath "WEB-INF/lib/*;WEB-INF/classes/." org.example.mvc.EmbeddedTomcat

@@ -14,7 +14,7 @@ import org.example.mvc.model.Database;
 @WebServlet("/addCourse")
 public class ServletAddCourse extends HttpServlet {
     private Database dataBase;
-    private String returnPath = "pages/pagesAddCourse.jsp";
+    private String returnPath = "WEB-INF/pages/pagesAddCourse.jsp";
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
