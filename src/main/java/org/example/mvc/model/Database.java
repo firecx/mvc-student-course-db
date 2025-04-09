@@ -95,7 +95,7 @@ public class Database {
         saveData(STUDENTS_FILE, students);
     }
 
-    public void addCourse(String id, String name) throws IOException {
+    public void addCourse(String id, String name) {
         courses.add(new Course(id, name));
         saveData(COURSES_FILE, courses);
     }
