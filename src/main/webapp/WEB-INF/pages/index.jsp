@@ -10,8 +10,8 @@
 </head>
 <body>
     <div>
-        <a href="/addStudent">Студенты</a>
-        <a href="/addCourse">Курсы</a>
+        <a href="/add/student">Студенты</a>
+        <a href="/add/course">Курсы</a>
         <a href="">Запись</a>
     </div>
 </body>

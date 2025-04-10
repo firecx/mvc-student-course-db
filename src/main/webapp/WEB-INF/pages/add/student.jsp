@@ -6,18 +6,18 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Course Form</title>
+<title>User Form</title>
 </head>
 <body>
-<form action="../addCourse" method="POST">
-    ID: <input name="courseid" />
+<form action="/add/student" method="POST">
+    ID: <input name="userid" />
     <br><br>
-    Course name: <input name="coursename" />
+    Name: <input name="username" />
     <br><br>
     <input type="submit" value="Submit" />
     <br><br>
 </form>
-    <a href="/index.jsp" class="home-button">На главную</a>
+    <a href="/" class="home-button">На главную</a>
     <div class="message">
         <p>${message}</p>
     </div>
