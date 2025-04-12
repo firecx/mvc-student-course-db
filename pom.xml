@@ -13,6 +13,7 @@
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <unpacked.dir>${project.build.directory}/${project.build.finalName}</unpacked.dir>
     </properties>
 
     <dependencies>
@@ -33,4 +34,37 @@
 
     </dependencies>
 
+    <profiles>
+        <profile>
+            <id>exec</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <artifactId>exec-maven-plugin</artifactId>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <version>3.5.0</version>
+                        <executions>
+                            <execution>
+                                <id>run-tomcat-server</id>
+                                <phase>verify</phase>
+                                <goals>
+                                    <goal>exec</goal>
+                                </goals>
+                                <configuration>
+                                    <executable>java</executable>
+                                    <arguments>
+                                        <argument>-classpath</argument>
+                                        <argument>${unpacked.dir}/WEB-INF/classes/.;${unpacked.dir}/WEB-INF/lib/*</argument>
+                                        <argument>org.example.tomcat.Server</argument>
+                                        <argument>--docBase</argument>
+                                        <argument>${unpacked.dir}</argument>
+                                    </arguments>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 </project>
