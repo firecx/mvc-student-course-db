@@ -7,7 +7,7 @@ import org.apache.catalina.connector.Connector;
 import org.apache.catalina.startup.Tomcat;
 
 public class Server {
-   static public void main(String[] args) throws LifecycleException {
+    static public void main(String[] args) {
       Tomcat tomcat = new Tomcat();
 
       Connector connector = new Connector("org.apache.coyote.http11.Http11NioProtocol");
@@ -18,7 +18,12 @@ public class Server {
       String docBase = new File(".").getAbsolutePath();
       tomcat.addWebapp("", docBase);
 
-      tomcat.start();
+        try {
+            tomcat.start();
+        } catch (LifecycleException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
       tomcat.getServer().await();
    }
 }
