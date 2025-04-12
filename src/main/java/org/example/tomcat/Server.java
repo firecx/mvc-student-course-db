@@ -8,21 +8,22 @@ import org.apache.catalina.startup.Tomcat;
 
 public class Server {
     static public void main(String[] args) {
-      Tomcat tomcat = new Tomcat();
+        Tomcat tomcat = new Tomcat();
 
-      Connector connector = new Connector("org.apache.coyote.http11.Http11NioProtocol");
-      connector.setScheme("http");
-      connector.setPort(8080);
-      tomcat.setConnector(connector);
+        Connector connector = new Connector("org.apache.coyote.http11.Http11NioProtocol");
+        connector.setScheme("http");
+        connector.setPort(8080);
+        tomcat.setConnector(connector);
 
-      String docBase = new File(".").getAbsolutePath();
+        String docBase = new File(".").getAbsolutePath();
+
         for (int i = 0; i < args.length; i++) {
             if (args[i].equals("--docBase") && i + 1 < args.length) {
                 docBase = args[i + 1];
             }
         }
         System.out.println("docBase: " + docBase);
-      tomcat.addWebapp("", docBase);
+        tomcat.addWebapp("", docBase);
 
         try {
             tomcat.start();
@@ -42,6 +43,6 @@ public class Server {
             }
         }));
 
-      tomcat.getServer().await();
-   }
+        tomcat.getServer().await();
+    }
 }
