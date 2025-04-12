@@ -30,6 +30,18 @@ public class Server {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
+
+        Runtime.getRuntime().addShutdownHook(new Thread(() -> {
+            try {
+                tomcat.stop();
+                tomcat.destroy();
+                System.out.println("Shutdown complete successfully");
+            } catch (LifecycleException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+        }));
+
       tomcat.getServer().await();
    }
 }
