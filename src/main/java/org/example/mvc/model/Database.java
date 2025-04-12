@@ -13,19 +13,22 @@ import com.fasterxml.jackson.databind.DatabindException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class Database {
-    private static volatile Database instance;
+    private static Database instance;
 
-    public static Database getInstance() {
+    public static Database getInstance(String docBase) {
         if (instance == null) {
-            instance = new Database();
+            instance = new Database(docBase);
         }
         return instance;
     }
 
-    private static final File STUDENTS_FILE = new File("WEB-INF/db/students.json");
-    private static final File COURSES_FILE = new File("WEB-INF/db/courses.json");
+    private static String databasePath = "/WEB-INF/db";
 
-    private Database() {
+    private static File STUDENTS_FILE;
+    private static File COURSES_FILE;
+
+    private Database(String docBase) {
+        STUDENTS_FILE = new File(docBase + databasePath + "/students.json");
         if (!STUDENTS_FILE.exists()) {
             if (STUDENTS_FILE.getParentFile() != null) {
                 STUDENTS_FILE.getParentFile().mkdirs();
@@ -37,6 +40,7 @@ public class Database {
                 e.printStackTrace();
             }
         }
+        COURSES_FILE = new File(docBase + databasePath + "/courses.json");
         if (!COURSES_FILE.exists()) {
             if (COURSES_FILE.getParentFile() != null) {
                 COURSES_FILE.getParentFile().mkdirs();
