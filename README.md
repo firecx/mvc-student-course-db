@@ -1,3 +1,7 @@
+# project goal
+
+main purpose of this project is to be a playground for learning basic tools and concepts of java programming world
+
 # repo content
 
 web application classes are in `org.example.mvc`
