@@ -59,16 +59,36 @@ check the links for inspiration
 
 1. add tests
 
-    Learn JUnit
+    learn JUnit
 
-2. check lombok library for easy boilerplate code generation
+2. add logging
 
-3. containerize the application in docker image for easy deployment
+    learn different logging facilites (i heard that tomcat uses ```juli``` library for logging, look into that second after inspecting standart jdk logging implementation)
+
+3. check lombok library for easy boilerplate code generation
+
+4. containerize the application in docker image for easy deployment
 
     Look into https://docs.docker.com/get-started/workshop/ for more info. Later deployment with kubernetes
 
-4. create maven goal for quick deployment
+5. create maven goal for quick deployment
 
-5. implement `org.apache.catalina.startup.Bootstrap`
+6. implement `org.apache.catalina.startup.Bootstrap`
 
     Current implementation of tomcat server uses `org.apache.catalina.startup.Tomcat`, which is intended to be used in tests, to properly implement the server we should work with `org.apache.catalina.startup.Bootstrap`
+
+# good to read or at least get acquainted
+
+read through specs plus read the source code
+
++ https://jakarta.ee/specifications/
+
+    + https://jakarta.ee/specifications/servlet/6.1/
+    + https://jakarta.ee/specifications/pages/4.0/
+
++ https://docs.oracle.com/javase/specs/
+
+    these are insane ones
+
+    + https://docs.oracle.com/javase/specs/jls/se17/html/index.html
+    + https://docs.oracle.com/javase/specs/jvms/se17/html/index.html
