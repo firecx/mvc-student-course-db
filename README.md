@@ -17,6 +17,13 @@ place yourself in directory with pom, then
 ```shell
 mvn clean package
 ```
+
+to start the server automatically (after stopping maven with ```Ctrl+c``` you have to manually find and kill server process)
+
+```shell
+mvn clean verify -Pexec
+```
+
 windows:
 ```powershell
 java -classpath "target/mvc-0.0.1/WEB-INF/lib/*;target/mvc-0.0.1/WEB-INF/classes/." org.example.tomcat.Server
