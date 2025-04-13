@@ -8,17 +8,15 @@ web application classes are in `org.example.mvc`
 
 embedded tomcat server classes are in `org.example.tomcat`
 
-
-
 # how to run
 
-place yourself in directory with pom, then
+place yourself in directory with pom, then run
 
 ```shell
 mvn clean package
 ```
 
-to start the server automatically (after stopping maven with ```Ctrl+c``` you have to manually find and kill server process)
+or this, to start the server automatically (after stopping maven with ```Ctrl+c``` you have to manually find and kill server process)
 
 ```shell
 mvn clean verify -Pexec
@@ -28,24 +26,22 @@ windows:
 ```powershell
 java -classpath "target/mvc-0.0.1/WEB-INF/lib/*;target/mvc-0.0.1/WEB-INF/classes/." org.example.tomcat.Server
 ```
-linux:
+unix:
 ```shell
 java -classpath "target/mvc-0.0.1/WEB-INF/lib/*:target/mvc-0.0.1/WEB-INF/classes/." org.example.tomcat.Server
 ```
 
 stop the server with `Ctrl+C`
 
-# state of embedded tomcat server
+# acces the server
 
-currently tomcat web server is configured to start on port `8080` and uses `http` protocol
+currently tomcat web server is configured programatically to start on port `8080` and uses `http` protocol
 
 access local server with:
 
 ```
 http://localhost:8080
 ```
-
-tomcat server implementation uses empty context string `""`, which triggers `welcome-page` servlet `GET` response on the address above 
 
 # feel free to issue new stuff 
 
