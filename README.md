@@ -47,18 +47,13 @@ http://localhost:8080
 
 tomcat server implementation uses empty context string `""`, which triggers `welcome-page` servlet `GET` response on the address above 
 
-# todo
+# feel free to issue new stuff 
 
-1. remove `ru.ivt.mvc` example
-2. fix `request.getRequestDispatcher("/add.jsp")` returning `null`
-3. add `welcome.jsp` page, on which database stats should be displayed (number of students and courses, modification count, requests count etc.)
-4. **continuously update todo and roadmap**
+check the links for inspiration 
 
-    Check the links for imagination 
-    
-    + https://github.com/s4kibs4mi/java-developer-roadmap
-    + https://github.com/akullpp/awesome-java
-    + https://github.com/sindresorhus/awesome
++ https://github.com/s4kibs4mi/java-developer-roadmap
++ https://github.com/akullpp/awesome-java
++ https://github.com/sindresorhus/awesome
 
 # roadmap
 
