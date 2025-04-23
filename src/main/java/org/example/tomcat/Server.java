@@ -16,12 +16,20 @@ public class Server {
         tomcat.setConnector(connector);
 
         String docBase = new File(".").getAbsolutePath();
+        String dbPath = new File(".").getAbsolutePath();
 
         for (int i = 0; i < args.length; i++) {
             if (args[i].equals("--docBase") && i + 1 < args.length) {
                 docBase = new File(args[i + 1]).getAbsolutePath();
             }
         }
+
+        for (int i = 0; i < args.length; i++) {
+            if (args[i].equals("--dbPath") && i + 1 < args.length) {
+                dbPath = new File(args[i + 1]).getAbsolutePath();
+            }
+        }
+
         System.out.println("docBase: " + docBase);
         tomcat.addWebapp("", docBase);
 
