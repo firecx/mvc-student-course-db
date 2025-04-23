@@ -21,14 +21,14 @@ public class ServletAddStudent extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) {
-        String userid = request.getParameter("userid");
-        String username = request.getParameter("username");
-        if (userid.isEmpty() || username.isEmpty()) {
+        String userId = request.getParameter("userid");
+        String userName = request.getParameter("username");
+        if (userId.isEmpty() || userName.isEmpty()) {
             request.setAttribute("message", "Ошибка: поля пустые!");
         } else {
-            dataBase.addStudent(userid, username);
+            dataBase.addStudent(userId, userName);
             try {
-                dataBaseSQLite.insertData(username);
+                dataBaseSQLite.insertData("students", userName);
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }
