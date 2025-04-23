@@ -11,6 +11,7 @@ import java.io.IOException;
 @WebServlet("")
 public class HelloServlet extends HttpServlet {
     private String returnPath = "/WEB-INF/pages/index.jsp";
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) {
         try {

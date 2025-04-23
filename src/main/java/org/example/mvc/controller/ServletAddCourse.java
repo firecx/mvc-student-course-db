@@ -14,7 +14,22 @@ import jakarta.servlet.http.HttpServletResponse;
 
 @WebServlet("/add/course")
 public class ServletAddCourse extends HttpServlet {
-    private Database dataBase = Database.getInstance();
+    private String docBase;
+    private Database database;
+
+    @Override
+    public void init() {
+        try {
+            super.init();
+        } catch (ServletException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
+        docBase = getServletContext().getRealPath("/");
+        database = Database.getInstance(docBase);
+    }
+
     private String returnPath = "/WEB-INF/pages/add/course.jsp";
 
     private DataBaseSQLite dataBaseSQLite = DataBaseSQLite.getInstance();
