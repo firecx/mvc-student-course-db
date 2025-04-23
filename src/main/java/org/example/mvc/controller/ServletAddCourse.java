@@ -1,7 +1,9 @@
 package org.example.mvc.controller;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
+import org.example.mvc.model.DataBaseSQLite;
 import org.example.mvc.model.Database;
 
 import jakarta.servlet.ServletException;
@@ -12,8 +14,10 @@ import jakarta.servlet.http.HttpServletResponse;
 
 @WebServlet("/add/course")
 public class ServletAddCourse extends HttpServlet {
-    private Database database = Database.getInstance();
+    private Database dataBase = Database.getInstance();
     private String returnPath = "/WEB-INF/pages/add/course.jsp";
+
+    private DataBaseSQLite dataBaseSQLite = DataBaseSQLite.getInstance();
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) {
@@ -22,7 +26,12 @@ public class ServletAddCourse extends HttpServlet {
         if (courseId.isEmpty() || courseName.isEmpty()) {
             request.setAttribute("message", "Ошибка: поля пустые!");
         } else {
-            database.addCourse(courseId, courseName);
+            dataBase.addCourse(courseId, courseName);
+            try {
+                dataBaseSQLite.insertData("courses", courseName);
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
             request.setAttribute("message", "Курс успешно добавлен!");
         }
         try {
