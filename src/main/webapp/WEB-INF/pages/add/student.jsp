@@ -12,6 +12,10 @@
 <form action="/add/student" method="POST">
     Name: <input name="username" />
     <br><br>
+    Name: <input name="useremail" />
+    <br><br>
+    Name: <input name="userphone" />
+    <br><br>
     <input type="submit" value="Submit" />
     <br><br>
 </form>

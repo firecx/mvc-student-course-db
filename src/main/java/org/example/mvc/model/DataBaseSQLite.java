@@ -41,7 +41,9 @@ public class DataBaseSQLite {
         String sql = """
                 CREATE TABLE IF NOT EXISTS students (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
-                name TEXT NOT NULL);
+                name TEXT NOT NULL
+                phone TEXT
+                email TEXT);
                 """;
 
         try (Statement statement = connection.createStatement()) {
@@ -56,7 +58,11 @@ public class DataBaseSQLite {
         String sql = """
                 CREATE TABLE IF NOT EXISTS courses (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
-                name TEXT NOT NULL);
+                name TEXT NOT NULL
+                duration TEXT
+                description TEXT
+                price TEXT
+                );
                 """;
 
         try (Statement statement = connection.createStatement()) {
@@ -67,13 +73,25 @@ public class DataBaseSQLite {
         }
     }
 
-    public void insertData(String table,String name) throws SQLException {
-        String sql = "INSERT INTO " +
-                table +
-                "(name) VALUES(?)";
+    public void insertDataStudent(String name, String phone, String email) throws SQLException {
+        String sql = " INSERT INTO students(name, phone, email) VALUES(?, ?, ?)";
 
         try (PreparedStatement pstmt = DriverManager.getConnection(DATABASE_PATH).prepareStatement(sql)) {
             pstmt.setString(1, name);
+            pstmt.setString(2, phone);
+            pstmt.setString(3, email);
+            pstmt.executeUpdate();
+        }
+    }
+
+    public void insertDataCourse(String name, String duration, String description, String price) throws SQLException {
+        String sql = " INSERT INTO courses(name, duration, description, price) VALUES(?, ?, ?, ?)";
+
+        try (PreparedStatement pstmt = DriverManager.getConnection(DATABASE_PATH).prepareStatement(sql)) {
+            pstmt.setString(1, name);
+            pstmt.setString(2, duration);
+            pstmt.setString(3, description);
+            pstmt.setString(4, price);
             pstmt.executeUpdate();
         }
     }
