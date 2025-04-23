@@ -10,8 +10,6 @@
 </head>
 <body>
 <form action="/add/student" method="POST">
-    ID: <input name="userid" />
-    <br><br>
     Name: <input name="username" />
     <br><br>
     <input type="submit" value="Submit" />

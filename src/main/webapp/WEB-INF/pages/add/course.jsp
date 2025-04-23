@@ -10,8 +10,6 @@
 </head>
 <body>
 <form action="/add/course" method="POST">
-    ID: <input name="courseid" />
-    <br><br>
     Course name: <input name="coursename" />
     <br><br>
     <input type="submit" value="Submit" />
