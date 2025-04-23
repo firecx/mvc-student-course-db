@@ -15,9 +15,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 public class Database {
     private static Database instance;
 
-    public static Database getInstance(String docBase) {
+    public static Database getInstance(String dbPath) {
         if (instance == null) {
-            instance = new Database(docBase);
+            instance = new Database(dbPath);
         }
         return instance;
     }
