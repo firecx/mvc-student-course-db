@@ -7,7 +7,7 @@ import java.sql.*;
 public class DataBaseSQLite {
 
     private static volatile DataBaseSQLite instance;
-    private String DATABASE_PATH = "jdbc:sqlite:WEB-INF/db/students.db";
+    private String DATABASE_PATH = "jdbc:sqlite:WEB-INF/db/registry.db";
 
     public static DataBaseSQLite getInstance() {
         if (instance == null) {
@@ -29,24 +29,48 @@ public class DataBaseSQLite {
         }
 
         try(Connection connection = DriverManager.getConnection(DATABASE_PATH)) {
-            createTable(connection);
-        } catch (SQLException e) {
+            createTableStudents(connection);
+            createTableCourses(connection);
+        }
+        catch (SQLException e) {
            e.printStackTrace();
         }
     }
 
-    private void createTable(Connection connection) throws SQLException {
-        String sql = "CREATE TABLE IF NOT EXISTS students (" +
-                "id INTEGER PRIMARY KEY AUTOINCREMENT," +
-                "name TEXT NOT NULL);";
+    private void createTableStudents(Connection connection) throws SQLException {
+        String sql = """
+                CREATE TABLE IF NOT EXISTS students (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                name TEXT NOT NULL);
+                """;
 
         try (Statement statement = connection.createStatement()) {
             statement.execute(sql);
         }
+        catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
-    public void insertData(String name) throws SQLException {
-        String sql = "INSERT INTO students(name) VALUES(?)";
+    private void createTableCourses(Connection connection) throws SQLException {
+        String sql = """
+                CREATE TABLE IF NOT EXISTS courses (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                name TEXT NOT NULL);
+                """;
+
+        try (Statement statement = connection.createStatement()) {
+            statement.execute(sql);
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void insertData(String table,String name) throws SQLException {
+        String sql = "INSERT INTO " +
+                table +
+                "(name) VALUES(?)";
 
         try (PreparedStatement pstmt = DriverManager.getConnection(DATABASE_PATH).prepareStatement(sql)) {
             pstmt.setString(1, name);
