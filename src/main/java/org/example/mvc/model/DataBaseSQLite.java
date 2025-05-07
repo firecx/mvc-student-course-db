@@ -17,7 +17,7 @@ public class DataBaseSQLite {
         return instance;
     }
 
-    private DataBaseSQLite(){
+    private DataBaseSQLite() {
         File DATABASE_FILE = new File(DATABASE);
 
         if (DATABASE_FILE.getParentFile() != null) {
@@ -29,12 +29,11 @@ public class DataBaseSQLite {
             e.printStackTrace();
         }
 
-        try(Connection connection = DriverManager.getConnection(DATABASE_PATH)) {
+        try (Connection connection = DriverManager.getConnection(DATABASE_PATH)) {
             createTableStudents(connection);
             createTableCourses(connection);
-        }
-        catch (SQLException e) {
-           e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
     }
 
@@ -49,8 +48,7 @@ public class DataBaseSQLite {
 
         try (Statement statement = connection.createStatement()) {
             statement.execute(sql);
-        }
-        catch (SQLException e) {
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }
@@ -68,8 +66,7 @@ public class DataBaseSQLite {
 
         try (Statement statement = connection.createStatement()) {
             statement.execute(sql);
-        }
-        catch (SQLException e) {
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }
@@ -101,14 +98,11 @@ public class DataBaseSQLite {
         String sql = "SELECT id, name FROM students";
 
         try (Statement statement = connection.createStatement();
-             ResultSet resultSet = statement.executeQuery(sql)) {
+                ResultSet resultSet = statement.executeQuery(sql)) {
 
             System.out.println("\nСписок пользователей:");
             while (resultSet.next()) {
-                System.out.println(
-                        resultSet.getInt("id") + "\t" +
-                                resultSet.getString("name")
-                );
+                System.out.println(resultSet.getInt("id") + "\t" + resultSet.getString("name"));
             }
         }
     }
