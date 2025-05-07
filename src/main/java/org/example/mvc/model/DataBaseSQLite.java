@@ -7,6 +7,7 @@ import java.sql.*;
 public class DataBaseSQLite {
 
     private static volatile DataBaseSQLite instance;
+    private String DATABASE = "WEB-INF/db/registry.db";
     private String DATABASE_PATH = "jdbc:sqlite:WEB-INF/db/registry.db";
 
     public static DataBaseSQLite getInstance() {
@@ -17,7 +18,7 @@ public class DataBaseSQLite {
     }
 
     private DataBaseSQLite(){
-        File DATABASE_FILE = new File(DATABASE_PATH);
+        File DATABASE_FILE = new File(DATABASE);
 
         if (DATABASE_FILE.getParentFile() != null) {
             DATABASE_FILE.getParentFile().mkdirs();
@@ -41,8 +42,8 @@ public class DataBaseSQLite {
         String sql = """
                 CREATE TABLE IF NOT EXISTS students (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
-                name TEXT NOT NULL
-                phone TEXT
+                name TEXT NOT NULL,
+                phone TEXT,
                 email TEXT);
                 """;
 
@@ -58,9 +59,9 @@ public class DataBaseSQLite {
         String sql = """
                 CREATE TABLE IF NOT EXISTS courses (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
-                name TEXT NOT NULL
-                duration TEXT
-                description TEXT
+                name TEXT NOT NULL,
+                duration TEXT,
+                description TEXT,
                 price TEXT
                 );
                 """;
