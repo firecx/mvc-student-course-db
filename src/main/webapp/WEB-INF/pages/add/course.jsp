@@ -17,7 +17,7 @@
     Description: <input name="description" />
     <br><br>
     Price: <input name="price" />
-    <br><br
+    <br><br>
     <input type="submit" value="Submit" />
     <br><br>
 </form>

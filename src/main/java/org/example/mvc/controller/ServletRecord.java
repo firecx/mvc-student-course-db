@@ -21,16 +21,17 @@ public class ServletRecord extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) {
         String courseName = request.getParameter("courseName");
         String studentName = request.getParameter("studentName");
+        String condition;
 
         if (courseName.isEmpty() || studentName.isEmpty()) {
             request.setAttribute("message", "Все поля должны быть заполнены!");
         } else {
             try {
-                dataBaseSQLite.insertDataRecord(courseName, studentName);
+                condition = dataBaseSQLite.insertDataRecord(courseName, studentName);
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }
-            request.setAttribute("message", "Студент успешно записан на курс!");
+            request.setAttribute("message", condition);
         }
         try {
             request.getRequestDispatcher(returnPath).forward(request, response);

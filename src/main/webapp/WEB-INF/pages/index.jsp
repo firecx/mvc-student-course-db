@@ -12,7 +12,7 @@
     <div>
         <a href="/add/student">Студенты</a>
         <a href="/add/course">Курсы</a>
-        <a href="">Запись</a>
+        <a href="/record">Запись</a>
     </div>
 </body>
 </html>
