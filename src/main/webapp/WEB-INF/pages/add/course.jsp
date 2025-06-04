@@ -12,6 +12,12 @@
 <form action="/add/course" method="POST">
     Course name: <input name="coursename" />
     <br><br>
+    Duration: <input name="duration" />
+    <br><br>
+    Description: <input name="description" />
+    <br><br>
+    Price: <input name="price" />
+    <br><br
     <input type="submit" value="Submit" />
     <br><br>
 </form>

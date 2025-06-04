@@ -20,9 +20,9 @@ public class ServletAddCourse extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) {
         String courseName = request.getParameter("coursename");
-        String duration = request.getParameter("coursename"); // заменить
-        String description = request.getParameter("coursename"); // заменить
-        String price = request.getParameter("coursename"); // заменить
+        String duration = request.getParameter("duration"); // заменить
+        String description = request.getParameter("description"); // заменить
+        String price = request.getParameter("price"); // заменить
         if (courseName.isEmpty()) {
             request.setAttribute("message", "Ошибка: поля пустые!");
         } else {
