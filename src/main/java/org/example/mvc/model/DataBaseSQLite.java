@@ -2,7 +2,6 @@ package org.example.mvc.model;
 
 import java.io.File;
 import java.io.IOException;
-import java.io.StreamCorruptedException;
 import java.sql.*;
 
 public class DataBaseSQLite {
