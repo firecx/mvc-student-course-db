@@ -7,8 +7,8 @@ import java.sql.*;
 public class DataBaseSQLite {
 
     private static volatile DataBaseSQLite instance;
-    private String DATABASE = "WEB-INF/db/registry.db";
-    private String DATABASE_PATH = "jdbc:sqlite:WEB-INF/db/registry.db";
+    private String DATABASE = "/usr/local/tomcat/webapps/ROOT/WEB-INF/db/registry.db";
+    private String DATABASE_PATH = "jdbc:sqlite:" + DATABASE;
 
     public static DataBaseSQLite getInstance() {
         if (instance == null) {

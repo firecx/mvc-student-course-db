@@ -1,2 +1,0 @@
-#!/bin/bash
-java -classpath "WEB-INF/lib/*:WEB-INF/classes/." org.example.tomcat.Server
