@@ -10,11 +10,11 @@
 </head>
 <body>
 <form action="/add/student" method="POST">
-    Name: <input name="username" />
+    Name: <input name="name" />
     <br><br>
-    Email: <input name="useremail" />
+    Email: <input name="email" />
     <br><br>
-    Phone: <input name="userphone" />
+    Phone: <input name="phone" />
     <br><br>
     <input type="submit" value="Submit" />
     <br><br>
