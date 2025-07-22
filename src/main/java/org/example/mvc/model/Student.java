@@ -1,21 +1,31 @@
 package org.example.mvc.model;
 
 public class Student {
-    private String id;
+    private int id;
     private String name;
-    // private String email;
-    // private String phone;
+    private String email;
+    private String phone;
 
-    public Student(String id, String name) {
+    public Student(int id, String name, String email, String phone) {
         this.id = id;
         this.name = name;
+        this.email = email;
+        this.phone = phone;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
     public String getName() {
         return name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getPhone() {
+        return phone;
     }
 }
