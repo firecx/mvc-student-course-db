@@ -9,7 +9,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @WebServlet("")
-public class HelloServlet extends HttpServlet {
+public class ServletHome extends HttpServlet {
     private String returnPath = "/WEB-INF/pages/index.jsp";
 
     @Override
