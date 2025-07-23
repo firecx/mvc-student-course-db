@@ -1,0 +1,6 @@
+CREATE TABLE IF NOT EXISTS students (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(50) UNIQUE NOT NULL,
+    email VARCHAR(100),
+    phone VARCHAR(100)
+);

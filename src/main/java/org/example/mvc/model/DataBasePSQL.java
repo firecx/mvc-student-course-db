@@ -8,9 +8,18 @@ public class DataBasePSQL {
     private static volatile DataBasePSQL instance;
     private final HikariDataSource dataSource;
 
+    static {
+        try {
+            // Явная регистрация драйвера
+            Class.forName("org.postgresql.Driver");
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException("PostgreSQL JDBC Driver not found", e);
+        }
+    }
+
     private DataBasePSQL() {
         HikariConfig config = new HikariConfig();
-        config.setJdbcUrl("jdbc:postgresql://localhost:5432/mvc");
+        config.setJdbcUrl("jdbc:postgresql://db:5432/mvc");
         config.setUsername("admin");
         config.setPassword("admin");
         config.setMaximumPoolSize(10);

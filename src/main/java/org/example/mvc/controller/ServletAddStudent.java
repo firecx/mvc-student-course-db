@@ -3,7 +3,8 @@ package org.example.mvc.controller;
 import java.io.IOException;
 import java.sql.SQLException;
 
-import org.example.mvc.model.DataBaseSQLite;
+import org.example.mvc.model.Student;
+import org.example.mvc.model.StudentDAO;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -15,18 +16,16 @@ import jakarta.servlet.http.HttpServletResponse;
 public class ServletAddStudent extends HttpServlet {
     private String returnPath = "/WEB-INF/pages/add/student.jsp";
 
-    private DataBaseSQLite dataBaseSQLite = DataBaseSQLite.getInstance();
-
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) {
-        String userName = request.getParameter("username");
-        String userEmail = request.getParameter("useremail");
-        String userPhone = request.getParameter("userphone");
+        String userName = request.getParameter("name");
+        String userEmail = request.getParameter("email");
+        String userPhone = request.getParameter("phone");
         if (userName.isEmpty() || (userPhone.isEmpty() && userEmail.isEmpty())) {
             request.setAttribute("message", "Ошибка: поля пустые!");
         } else {
             try {
-                dataBaseSQLite.insertDataStudent(userName, userPhone, userEmail);
+                new StudentDAO().createStudent(new Student(userName, userEmail, userPhone));
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }
