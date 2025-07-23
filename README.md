@@ -12,35 +12,28 @@ embedded tomcat server classes are in `org.example.tomcat`
 
 place yourself in directory with pom, then run
 
+unix:
 ```shell
 mvn clean package
 ```
 
-or this, to start the server automatically (after stopping maven with ```Ctrl+c``` you have to manually find and kill server process)
-
 ```shell
-mvn clean verify -Pexec
+docker compose up
 ```
 
-windows:
-```powershell
-java -classpath "target/mvc-0.0.1/WEB-INF/lib/*;target/mvc-0.0.1/WEB-INF/classes/." org.example.tomcat.Server
-```
-unix:
+stop the server with
 ```shell
-java -classpath "target/mvc-0.0.1/WEB-INF/lib/*:target/mvc-0.0.1/WEB-INF/classes/." org.example.tomcat.Server
+docker compose stop
 ```
-
-stop the server with `Ctrl+C`
 
 # acces the server
 
-currently tomcat web server is configured programatically to start on port `8080` and uses `http` protocol
+currently tomcat web server is configured programatically to start on port `80` and uses `http` protocol
 
 access local server with:
 
 ```
-http://localhost:8080
+http://localhost
 ```
 
 # feel free to issue new stuff 
