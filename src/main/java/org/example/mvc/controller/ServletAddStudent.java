@@ -3,8 +3,8 @@ package org.example.mvc.controller;
 import java.io.IOException;
 import java.sql.SQLException;
 
-import org.example.mvc.model.Student;
-import org.example.mvc.model.StudentDAO;
+import org.example.mvc.model.DAO.StudentDAO;
+import org.example.mvc.model.units.Student;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;

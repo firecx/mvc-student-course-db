@@ -1,4 +1,4 @@
-package org.example.mvc.model;
+package org.example.mvc.model.units;
 
 public class Course {
     private String id;
