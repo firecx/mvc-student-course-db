@@ -10,7 +10,7 @@
 </head>
 <body>
 <form action="/add/course" method="POST">
-    Course name: <input name="coursename" />
+    Course name: <input name="name" />
     <br><br>
     Duration: <input name="duration" />
     <br><br>
