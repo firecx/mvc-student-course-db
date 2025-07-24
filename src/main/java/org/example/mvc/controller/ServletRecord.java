@@ -11,7 +11,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-@WebServlet("/record")
+@WebServlet("/add/record")
 public class ServletRecord extends HttpServlet {
     private String returnPath = "/WEB-INF/pages/record.jsp";
 
