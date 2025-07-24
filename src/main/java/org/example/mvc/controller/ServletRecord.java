@@ -28,41 +28,41 @@ public class ServletRecord extends HttpServlet {
             request.setAttribute("message", "Все поля должны быть заполнены!");
         }
         else {
+            Course course;
+            Student student;
+            
             try {
-                Course course;
-                Student student;
-
-                try {
-                    course = new CourseDAO().getCourseByName(courseName);
-                } 
-                catch (SQLException e) {
-                    throw new RuntimeException(e);
-                }
-
-                if (course == null){
-                    request.setAttribute("message", "Курс не найден!");
-                }
-                else {
-                    try {
-                        student = new StudentDAO().getStudentByName(studentName);
-                    }
-                    catch (SQLException e) {
-                        throw new RuntimeException(e);
-                    }
-
-                    if (student == null) {
-                        request.setAttribute("message", "Студент не найден!");
-                    }
-                    else {
-                        new RecordDAO().createRecord(course, student);
-                    } 
-                }
-                
+                course = new CourseDAO().getCourseByName(courseName);                
             }
             catch (SQLException e) {
                 throw new RuntimeException(e);
             }
-            request.setAttribute("message", "Успешная запись!");
+
+            if (course == null){
+                request.setAttribute("message", "Курс не найден!");
+            }
+            else {
+                try {
+                    student = new StudentDAO().getStudentByName(studentName);
+                }
+                catch (SQLException e) {
+                    throw new RuntimeException(e);
+                }
+
+                if (student == null) {
+                    request.setAttribute("message", "Студент не найден!");
+                }
+                else {
+                    try{
+                        new RecordDAO().createRecord(course, student);
+                    }
+                    catch (SQLException e) {
+                        throw new RuntimeException(e);
+                    }
+                    
+                    request.setAttribute("message", "Успешная запись!");
+                } 
+            }
         }
         try {
             request.getRequestDispatcher(returnPath).forward(request, response);
