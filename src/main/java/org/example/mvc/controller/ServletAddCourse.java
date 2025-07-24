@@ -3,7 +3,8 @@ package org.example.mvc.controller;
 import java.io.IOException;
 import java.sql.SQLException;
 
-import org.example.mvc.model.DataBaseSQLite;
+import org.example.mvc.model.DAO.CourseDAO;
+import org.example.mvc.model.units.Course;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -15,19 +16,17 @@ import jakarta.servlet.http.HttpServletResponse;
 public class ServletAddCourse extends HttpServlet {
     private String returnPath = "/WEB-INF/pages/add/course.jsp";
 
-    private DataBaseSQLite dataBaseSQLite = DataBaseSQLite.getInstance();
-
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) {
-        String courseName = request.getParameter("coursename");
-        String duration = request.getParameter("duration"); // заменить
-        String description = request.getParameter("description"); // заменить
-        String price = request.getParameter("price"); // заменить
-        if (courseName.isEmpty()) {
-            request.setAttribute("message", "Ошибка: поля пустые!");
+        String courseName = request.getParameter("name");
+        String description = request.getParameter("description");
+        String duration = request.getParameter("duration");
+        String price = request.getParameter("price");
+        if (courseName.isEmpty() || description.isEmpty() || duration.isEmpty() || price.isEmpty()) {
+            request.setAttribute("message", "Заполните все поля!");
         } else {
             try {
-                dataBaseSQLite.insertDataCourse(courseName, duration, description, price);
+                new CourseDAO().createCourse(new Course(courseName, description, duration, Integer.parseInt(price)));
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }
