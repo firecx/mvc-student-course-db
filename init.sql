@@ -19,6 +19,6 @@ CREATE TABLE IF NOT EXISTS records (
 
     PRIMARY KEY (courseId, studentId),
 
-    FOREIGN KEY (courseId) ON DELETE CASCADE,
-    FOREIGN KEY (studentId) ON DELETE CASCADE
+    FOREIGN KEY (courseId) REFERENCES courses(id) ON DELETE CASCADE,
+    FOREIGN KEY (studentId) REFERENCES students(id) ON DELETE CASCADE
 );
