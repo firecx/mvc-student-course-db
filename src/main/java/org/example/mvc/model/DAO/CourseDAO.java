@@ -56,6 +56,24 @@ public class CourseDAO {
         }
     }
 
+    public Course getCourseByName(String name) throws SQLException {
+        String sql = "SELECT * FROM courses WHERE name = ?";
+
+        try (Connection connection = DataBasePSQL.getInstance().getDataSource().getConnection(); 
+            PreparedStatement statement = connection.prepareStatement(sql)){
+
+                statement.setString(1, name);
+
+                try (ResultSet resultSet = statement.executeQuery()) {
+                    if (resultSet.next()) {
+                        return mapCourseFromResultSet(resultSet);
+                    }
+                    return null;
+                }
+
+        }
+    }
+
     public List<Course> getAllCourses() throws SQLException {
         List<Course> courses = new ArrayList<>();
         String sql = "SELECT * FROM courses";
