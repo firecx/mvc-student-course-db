@@ -1,19 +1,19 @@
 package org.example.mvc.model.units;
 
 public class Record {
-    private String courseId;
-    private String studentId;
+    private int courseId;
+    private int studentId;
 
-    public Record(String courseId, String studentId) {
+    public Record(int courseId, int studentId) {
         this.courseId = courseId;
         this.studentId = studentId;
     }
 
-    public String getCourseId() {
+    public int getCourseId() {
         return courseId;
     }
 
-    public String getStudentId() {
+    public int getStudentId() {
         return studentId;
     }
 
