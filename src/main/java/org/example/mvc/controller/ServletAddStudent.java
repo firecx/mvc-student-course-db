@@ -21,8 +21,8 @@ public class ServletAddStudent extends HttpServlet {
         String userName = request.getParameter("name");
         String userEmail = request.getParameter("email");
         String userPhone = request.getParameter("phone");
-        if (userName.isEmpty() || (userPhone.isEmpty() && userEmail.isEmpty())) {
-            request.setAttribute("message", "Ошибка: поля пустые!");
+        if (userName.isEmpty()) {
+            request.setAttribute("message", "Введите имя!");
         } else {
             try {
                 new StudentDAO().createStudent(new Student(userName, userEmail, userPhone));
