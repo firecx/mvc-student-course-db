@@ -7,7 +7,7 @@ CREATE TABLE IF NOT EXISTS students (
 
 CREATE TABLE IF NOT EXISTS courses (
     id SERIAL PRIMARY KEY,
-    name TEXT NOT NULL,
+    name TEXT UNIQUE NOT NULL,
     description TEXT NOT NULL,
     duration TEXT NOT NULL,
     price MONEY NOT NULL

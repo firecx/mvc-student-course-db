@@ -9,7 +9,7 @@
 <title>User Form</title>
 </head>
 <body>
-<form action="/record" method="POST">
+<form action="/add/record" method="POST">
     Course name: <input name="courseName" />
     <br><br>
     Student name: <input name="studentName" />
