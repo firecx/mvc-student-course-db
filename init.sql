@@ -10,7 +10,7 @@ CREATE TABLE IF NOT EXISTS courses (
     name TEXT UNIQUE NOT NULL,
     description TEXT NOT NULL,
     duration TEXT NOT NULL,
-    price MONEY NOT NULL
+    price INTEGER NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS records (

@@ -38,7 +38,7 @@ public class StudentDAO {
     }
 
     public Student getStudentById(int id) throws SQLException {
-        String sql = "SELECT * FROM users WHERE id = ?";
+        String sql = "SELECT * FROM students WHERE id = ?";
 
         try (Connection connection = DataBasePSQL.getInstance().getDataSource().getConnection(); 
             PreparedStatement statement = connection.prepareStatement(sql)){
@@ -56,7 +56,7 @@ public class StudentDAO {
     }
 
     public Student getStudentByName(String name) throws SQLException {
-        String sql = "SELECT * FROM users WHERE name = ?";
+        String sql = "SELECT * FROM students WHERE name = ?";
 
         try (Connection connection = DataBasePSQL.getInstance().getDataSource().getConnection(); 
             PreparedStatement statement = connection.prepareStatement(sql)){
