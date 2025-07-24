@@ -55,6 +55,24 @@ public class StudentDAO {
         }
     }
 
+    public Student getStudentByName(String name) throws SQLException {
+        String sql = "SELECT * FROM users WHERE name = ?";
+
+        try (Connection connection = DataBasePSQL.getInstance().getDataSource().getConnection(); 
+            PreparedStatement statement = connection.prepareStatement(sql)){
+
+                statement.setString(1, name);
+
+                try (ResultSet resultSet = statement.executeQuery()) {
+                    if (resultSet.next()) {
+                        return mapStudentFromResultSet(resultSet);
+                    }
+                    return null;
+                }
+
+        }
+    }
+
     public List<Student> getAllStudents() throws SQLException {
         List<Student> students = new ArrayList<>();
         String sql = "SELECT * FROM students";
