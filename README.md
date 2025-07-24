@@ -6,29 +6,26 @@ main purpose of this project is to be a playground for learning basic tools and 
 
 web application classes are in `org.example.mvc`
 
-embedded tomcat server classes are in `org.example.tomcat`
-
 # how to run
 
-place yourself in directory with pom, then run
+you will need a docker
+place yourself in directory with docker-compose.yml, then run
 
 unix:
-```shell
-mvn clean package
-```
 
 ```shell
 docker compose up
 ```
 
-stop the server with
+stop the server with:
 ```shell
 docker compose stop
 ```
 
-# acces the server
+# access the server
 
-currently tomcat web server is configured programatically to start on port `80` and uses `http` protocol
+currently tomcat web server is configured programmatically to start on port `8080`,
+but the docker container redirects to port `80` and uses `http` protocol
 
 access local server with:
 
@@ -46,25 +43,7 @@ check the links for inspiration
 
 # roadmap
 
-1. add tests
-
-    learn JUnit
-
-2. add logging
-
-    learn different logging facilites (i heard that tomcat uses ```juli``` library for logging, look into that second after inspecting standart jdk logging implementation)
-
-3. check lombok library for easy boilerplate code generation
-
-4. containerize the application in docker image for easy deployment
-
-    Look into https://docs.docker.com/get-started/workshop/ for more info. Later deployment with kubernetes
-
-5. create maven goal for quick deployment
-
-6. implement `org.apache.catalina.startup.Bootstrap`
-
-    Current implementation of tomcat server uses `org.apache.catalina.startup.Tomcat`, which is intended to be used in tests, to properly implement the server we should work with `org.apache.catalina.startup.Bootstrap`
+1. It's being worked on
 
 # good to read or at least get acquainted
 
