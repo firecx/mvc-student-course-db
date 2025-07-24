@@ -10,5 +10,15 @@ CREATE TABLE IF NOT EXISTS courses (
     name TEXT NOT NULL,
     description TEXT NOT NULL,
     duration TEXT NOT NULL,
-    price MONEY NOT NULL,
+    price MONEY NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS records (
+    courseId INTEGER NOT NULL,
+    studentId INTEGER NOT NULL,
+
+    PRIMARY KEY (courseId, studentId),
+
+    FOREIGN KEY (courseId) ON DELETE CASCADE,
+    FOREIGN KEY (studentId) ON DELETE CASCADE
 );
