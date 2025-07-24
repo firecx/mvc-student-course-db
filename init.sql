@@ -14,11 +14,11 @@ CREATE TABLE IF NOT EXISTS courses (
 );
 
 CREATE TABLE IF NOT EXISTS records (
-    courseId INTEGER NOT NULL,
-    studentId INTEGER NOT NULL,
+    course_id INTEGER NOT NULL,
+    student_id INTEGER NOT NULL,
 
-    PRIMARY KEY (courseId, studentId),
+    PRIMARY KEY (course_id, student_id),
 
-    FOREIGN KEY (courseId) REFERENCES courses(id) ON DELETE CASCADE,
-    FOREIGN KEY (studentId) REFERENCES students(id) ON DELETE CASCADE
+    FOREIGN KEY (course_id) REFERENCES courses(id) ON DELETE CASCADE,
+    FOREIGN KEY (student_id) REFERENCES students(id) ON DELETE CASCADE
 );

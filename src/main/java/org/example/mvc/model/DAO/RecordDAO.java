@@ -13,10 +13,10 @@ import org.example.mvc.model.units.Record;
 public class RecordDAO {
 
     public boolean createRecord(Course course, Student student) throws SQLException {
-        String sql = "INSERT INTO records (courseId, studentId) VALUES (?, ?)";
+        String sql = "INSERT INTO records (course_id, student_id) VALUES (?, ?)";
 
         try (Connection connection = DataBasePSQL.getInstance().getDataSource().getConnection();
-        PreparedStatement statement = connection.prepareStatement(sql, new String[]{"courseId", "studentId"})) {
+        PreparedStatement statement = connection.prepareStatement(sql, new String[]{"course_id", "student_id"})) {
             statement.setInt(1, course.getId());
             statement.setInt(2, student.getId());
 
@@ -39,8 +39,8 @@ public class RecordDAO {
     private Record mapRecordFromResultSet(ResultSet resultSet) throws SQLException {
         
         Record record = new Record( 
-            resultSet.getInt("courseId"),
-            resultSet.getInt("studentId")
+            resultSet.getInt("course_id"),
+            resultSet.getInt("student_id")
         );
 
         return record;
