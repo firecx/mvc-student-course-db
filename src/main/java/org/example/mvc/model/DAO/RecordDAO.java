@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import org.example.mvc.model.DataBasePSQL;
 import org.example.mvc.model.units.Course;
 import org.example.mvc.model.units.Student;
-import  org.example.mvc.model.units.Record;
+import org.example.mvc.model.units.Record;
 
 public class RecordDAO {
 
