@@ -8,7 +8,8 @@ web application classes are in `org.example.mvc`
 
 # how to run
 
-you will need a docker
+you will need a docker,
+
 place yourself in directory with docker-compose.yml, then run
 
 unix:
